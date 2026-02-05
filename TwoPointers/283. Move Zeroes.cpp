@@ -1,17 +1,23 @@
-class Solution {
-public:
-    void moveZeroes(vector<int>& nums) {
-        int idx = 0;
+#include <bits/stdc++.h>
+using namespace std;
 
-        for(int i = 0; i < nums.size(); i++){
-            if(nums[i] != 0){
-                nums[idx] = nums[i];
-                idx++;
-            }
-        }
-
-        for(int i = idx; i < nums.size(); i++){
-            nums[i] = 0;
+void moveZeroes(vector<int>& nums) {
+    int idx = 0;
+    for(int i = 0; i < nums.size(); i++){
+        if(nums[i] != 0){
+            nums[idx] = nums[i];
+            idx++;
         }
     }
-};
+    for(int i = idx; i < nums.size(); i++){
+        nums[i] = 0;
+    }
+}
+
+int main() {
+    vector<int> nums = {0,1,0,3,12};
+    moveZeroes(nums);
+
+    for(int x : nums) cout << x << " ";
+    cout << endl;
+}
